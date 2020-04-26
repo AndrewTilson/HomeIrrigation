@@ -7,40 +7,38 @@ using MySql.Data.MySqlClient;
 
 namespace HomeIrrigationAPI.Models
 {
-    public class SensorReadingsModel : IDisposable
+    public class SensorReadingsModel
     {
         public DateTime RecordedTS { get; set; }
 
-        public int ID { get; set; }
+        public int LocationID { get; set; }
 
         public int SensorID { get; set; }
 
-        public int Temp { get; set; }
-
         public int Moisture { get; set; }
 
-        public MySqlConnection Connection { get; }
+    //    public MySqlConnection Connection { get; }
 
-        public SensorReadingsModel(MySqlConnection connection)
-        {
-            Connection = connection;
-        }
+    //    public SensorReadingsModel(MySqlConnection connection)
+    //    {
+    //        Connection = connection;
+    //    }
 
-        public async Task<string> GetAll()
-        {
-            var cmd = Connection.CreateCommand();
-            cmd.CommandText = "select count(*) SensorReadings";
-            var result = await cmd.ExecuteReaderAsync();
+    //    public async Task<string> GetAll()
+    //    {
+    //        var cmd = Connection.CreateCommand();
+    //        cmd.CommandText = "select count(*) SensorReadings";
+    //        var result = await cmd.ExecuteReaderAsync();
 
-            string results = "";
-            while (result.Read())
-            {
-                results = results + result.GetInt32(0);
-            }
+    //        string results = "";
+    //        while (result.Read())
+    //        {
+    //            results = results + result.GetInt32(0);
+    //        }
 
-            return results;
-        }
+    //        return results;
+    //    }
 
-        public void Dispose() => Connection.Dispose();
+    //    public void Dispose() => Connection.Dispose();
     }
 }
