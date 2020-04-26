@@ -33,6 +33,9 @@ namespace HomeIrrigationAPI.Controllers
         [HttpPost]
         public IActionResult Post(SensorReadingsModel sensorReading)
         {
+            Connection.OpenAsync();
+            var model = new SensorReadingsModel(Connection);
+            model.LogReading(sensorReading);
             return Ok();
         }
     }
