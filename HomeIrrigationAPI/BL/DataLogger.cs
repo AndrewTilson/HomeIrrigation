@@ -32,7 +32,7 @@ namespace HomeIrrigationAPI.BL
         public void LogReading(SensorReadingsModel Data)
         {
             var cmd = Connection.CreateCommand();
-            cmd.CommandText = "INSERT INTO `SensorReadings`(`ID`, `SensorID`, `RecordedTS`, `Moisture`) VALUES (" + Data.LocationID + "," + Data.SensorID + "," + DateTime.Now.ToString() + "," + Data.Moisture + ")";
+            cmd.CommandText = "INSERT INTO `SensorReadings`(`ID`, `SensorID`, `RecordedTS`, `Moisture`) VALUES (" + Data.LocationID + "," + Data.SensorID + "," + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "," + Data.Moisture + ")";
             var result = cmd.ExecuteNonQuery();
 
         }
