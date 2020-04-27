@@ -14,6 +14,11 @@ namespace HomeIrrigationAPI
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+
+            // use this to allow command line parameters in the config
+            var configuration = new ConfigurationBuilder()
+                .AddCommandLine(args)
+                .Build();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HomeIrrigationAPI.BL;
 using HomeIrrigationAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,8 +35,8 @@ namespace HomeIrrigationAPI.Controllers
         public IActionResult Post(SensorReadingsModel sensorReading)
         {
             Connection.OpenAsync();
-            var model = new SensorReadingsModel(Connection);
-            model.LogReading(sensorReading);
+            var Logger = new DataLogger(Connection);
+            Logger.LogReading(sensorReading);
             return Ok();
         }
     }
