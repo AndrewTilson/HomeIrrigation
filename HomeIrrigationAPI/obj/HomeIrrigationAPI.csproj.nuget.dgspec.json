@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wades\\source\\repos\\HomeIrrigation\\HomeIrrigationAPI\\HomeIrrigationAPI.csproj": {}
+    "/home/pi/projects/HomeIrrigation/HomeIrrigationAPI/HomeIrrigationAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wades\\source\\repos\\HomeIrrigation\\HomeIrrigationAPI\\HomeIrrigationAPI.csproj": {
+    "/home/pi/projects/HomeIrrigation/HomeIrrigationAPI/HomeIrrigationAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wades\\source\\repos\\HomeIrrigation\\HomeIrrigationAPI\\HomeIrrigationAPI.csproj",
+        "projectUniqueName": "/home/pi/projects/HomeIrrigation/HomeIrrigationAPI/HomeIrrigationAPI.csproj",
         "projectName": "HomeIrrigationAPI",
-        "projectPath": "C:\\Users\\wades\\source\\repos\\HomeIrrigation\\HomeIrrigationAPI\\HomeIrrigationAPI.csproj",
-        "packagesPath": "C:\\Users\\wades\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wades\\source\\repos\\HomeIrrigation\\HomeIrrigationAPI\\obj\\",
+        "projectPath": "/home/pi/projects/HomeIrrigation/HomeIrrigationAPI/HomeIrrigationAPI.csproj",
+        "packagesPath": "/home/pi/.nuget/packages/",
+        "outputPath": "/home/pi/projects/HomeIrrigation/HomeIrrigationAPI/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\wades\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/home/pi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
         }
       }
     }
