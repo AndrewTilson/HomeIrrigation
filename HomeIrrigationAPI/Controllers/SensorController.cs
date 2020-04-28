@@ -18,7 +18,7 @@ namespace HomeIrrigationAPI.Controllers
 
         public SensorController()
         {
-            Connection = new MySqlConnection("Server=192.168.1.221;Port=3306;Uid=svcIrrigationAPI;Pwd=Casper01Lucy;Database=IrrigationDB");
+            Connection = new MySqlConnection("Server=localhost;User Id=*;Password=*;Database=IrrigationDB");
         }
 
         //[HttpGet]
@@ -34,7 +34,7 @@ namespace HomeIrrigationAPI.Controllers
         [HttpPost]
         public IActionResult Post(SensorReadingsModel sensorReading)
         {
-            Connection.OpenAsync();
+            Connection.Open();
             var Logger = new DataLogger(Connection);
             Logger.LogReading(sensorReading);
             return Ok();
