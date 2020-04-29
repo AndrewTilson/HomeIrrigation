@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HomeIrrigationAPI.DBContext;
@@ -22,6 +23,7 @@ namespace HomeIrrigationAPI.BL
 
         public void LogSensorReading(SensorReading Data)
         {
+            Data.RecordedTS = DateTime.Now;
             _context.Add(Data);
             _context.SaveChanges();
             return;
