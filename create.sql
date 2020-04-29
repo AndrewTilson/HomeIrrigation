@@ -1,0 +1,10 @@
+CREATE DATABASE `irrigationdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+CREATE TABLE `sensorreadings` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LocationID` int(11) DEFAULT NULL,
+  `SensorID` int(11) DEFAULT NULL,
+  `Moisture` int(11) DEFAULT NULL,
+  `RecordedTS` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=157 DEFAULT CHARSET=utf8mb4;
