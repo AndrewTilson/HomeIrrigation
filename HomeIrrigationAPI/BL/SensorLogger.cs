@@ -6,11 +6,11 @@ using HomeIrrigationAPI.Models;
 
 namespace HomeIrrigationAPI.BL
 {
-    public class DataLogger
+    public class SensorLogger
     {
         private IrrigationContext _context { get; }
 
-        public DataLogger(IrrigationContext Context)
+        public SensorLogger(IrrigationContext Context)
         {
             _context = Context;
         }

@@ -1,3 +1,4 @@
+using HomeIrrigationAPI.BL;
 using HomeIrrigationAPI.DBContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,6 +23,7 @@ namespace HomeIrrigationAPI
         {
             services.AddControllers();
             services.AddDbContext<IrrigationContext>(options => options.UseMySQL(Configuration["ConnectionStrings:IrrigationDBContext"]));
+            services.AddScoped<SensorLogger>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,18 +10,17 @@ namespace HomeIrrigationAPI.Controllers
     [ApiController]
     public class SensorController : ControllerBase
     {
-        public IrrigationContext context { get; }
+        public SensorLogger _sensorlogger { get; }
 
-        public SensorController(IrrigationContext Context)
+        public SensorController(SensorLogger SensorLogger)
         {
-            context = Context;
+            _sensorlogger = SensorLogger;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var data = new DataLogger(context);
-            var result = await data.GetAll();
+            var result = await _sensorlogger.GetAll();
             return new OkObjectResult(result);
         }
 
@@ -29,8 +28,7 @@ namespace HomeIrrigationAPI.Controllers
         [HttpPost]
         public IActionResult Post(SensorReading sensorReading)
         {
-            var data = new DataLogger(context);
-            data.LogSensorReading(sensorReading);
+            _sensorlogger.LogSensorReading(sensorReading);
             return Ok();
         }
     }
