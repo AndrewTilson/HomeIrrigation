@@ -17,7 +17,7 @@ namespace HomeIrrigationAPI.BL
 
         public async Task<List<SensorReading>> GetAll()
         {
-            return _context.SensorReadings.ToList();
+            return _context.sensorreadings.ToList();
         }
 
         public void LogSensorReading(SensorReading Data)

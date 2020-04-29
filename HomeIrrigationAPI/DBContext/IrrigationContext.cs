@@ -6,7 +6,7 @@ namespace HomeIrrigationAPI.DBContext
     public class IrrigationContext : DbContext
     {
         public IrrigationContext(DbContextOptions<IrrigationContext> options) : base(options) { }
-        public DbSet<SensorReading> SensorReadings { get; set; }
+        public DbSet<SensorReading> sensorreadings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
