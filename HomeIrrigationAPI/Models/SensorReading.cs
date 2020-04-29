@@ -7,14 +7,16 @@ using MySql.Data.MySqlClient;
 
 namespace HomeIrrigationAPI.Models
 {
-    public class SensorReadingsModel
+    public class SensorReading
     {
-        public DateTime RecordedTS { get; set; }
+        public int ID { get; set; }
 
         public int LocationID { get; set; }
 
         public int SensorID { get; set; }
 
         public int Moisture { get; set; }
+
+        public DateTime RecordedTS { get; set; }
     }
 }

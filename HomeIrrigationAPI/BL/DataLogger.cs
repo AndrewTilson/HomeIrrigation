@@ -1,41 +1,30 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using HomeIrrigationAPI.DBContext;
 using HomeIrrigationAPI.Models;
-using MySql.Data.MySqlClient;
 
 namespace HomeIrrigationAPI.BL
 {
-    public class DataLogger : IDisposable
+    public class DataLogger
     {
-        private MySqlConnection Connection { get; }
+        private IrrigationContext _context { get; }
 
-        public DataLogger(MySqlConnection connection)
+        public DataLogger(IrrigationContext Context)
         {
-            Connection = connection;
+            _context = Context;
         }
 
-        public async Task<string> GetAll()
+        public async Task<List<SensorReading>> GetAll()
         {
-            var cmd = Connection.CreateCommand();
-            cmd.CommandText = "select count(*) from SensorReadings";
-            var result = await cmd.ExecuteReaderAsync();
-
-            string results = "";
-            while (result.Read())
-            {
-                results = results + result.GetInt32(0);
-            }
-
-            return results;
+            return _context.SensorReadings.ToList();
         }
 
-        public void LogReading(SensorReadingsModel Data)
+        public void LogSensorReading(SensorReading Data)
         {
-            var cmd = Connection.CreateCommand();
-            cmd.CommandText = "INSERT INTO `SensorReadings`(`LocationID`, `SensorID`, `RecordedTS`, `Moisture`) VALUES (" + Data.LocationID + "," + Data.SensorID + ",NOW()," + Data.Moisture + ")";
-            var result = cmd.ExecuteNonQuery();
+            _context.Add(Data);
+            _context.SaveChanges();
+            return;
         }
-
-        public void Dispose() => Connection.Dispose();
     }
 }

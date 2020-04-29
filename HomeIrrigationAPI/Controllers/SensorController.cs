@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using HomeIrrigationAPI.BL;
+using HomeIrrigationAPI.DBContext;
 using HomeIrrigationAPI.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
 
 namespace HomeIrrigationAPI.Controllers
 {
@@ -14,29 +10,27 @@ namespace HomeIrrigationAPI.Controllers
     [ApiController]
     public class SensorController : ControllerBase
     {
-        public MySqlConnection Connection { get; }
+        public IrrigationContext context { get; }
 
-        public SensorController()
+        public SensorController(IrrigationContext Context)
         {
-            Connection = new MySqlConnection("Server=localhost;User Id=*;Password=*;Database=IrrigationDB");
+            context = Context;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Get()
-        //{
-        //    await Connection.OpenAsync();
-        //    var query = new SensorReadingsModel(Connection);
-        //    var result = await query.GetAll();
-        //    return new OkObjectResult(result);
-        //}
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var data = new DataLogger(context);
+            var result = await data.GetAll();
+            return new OkObjectResult(result);
+        }
 
         // POST: api/Sensor
         [HttpPost]
-        public IActionResult Post(SensorReadingsModel sensorReading)
+        public IActionResult Post(SensorReading sensorReading)
         {
-            Connection.Open();
-            var Logger = new DataLogger(Connection);
-            Logger.LogReading(sensorReading);
+            var data = new DataLogger(context);
+            data.LogSensorReading(sensorReading);
             return Ok();
         }
     }
