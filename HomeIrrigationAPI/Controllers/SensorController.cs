@@ -27,7 +27,7 @@ namespace HomeIrrigationAPI.Controllers
         [HttpPost]
         public IActionResult Post(SensorReading sensorReading)
         {
-            sensorReading.SensorMac = sensorReading.SensorMac.TrimStart(':');
+            sensorReading.SensorMac = sensorReading.SensorMac.Replace(":", string.Empty);
             _sensorlogger.LogSensorReading(sensorReading);
             return Ok();
         }
