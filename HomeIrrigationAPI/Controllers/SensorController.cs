@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using HomeIrrigationAPI.BL;
-using HomeIrrigationAPI.DBContext;
 using HomeIrrigationAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +27,7 @@ namespace HomeIrrigationAPI.Controllers
         [HttpPost]
         public IActionResult Post(SensorReading sensorReading)
         {
+            sensorReading.SensorMac = sensorReading.SensorMac.TrimStart(':');
             _sensorlogger.LogSensorReading(sensorReading);
             return Ok();
         }
