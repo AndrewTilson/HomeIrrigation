@@ -18,5 +18,7 @@ namespace HomeIrrigationAPI.Models
         public int Moisture { get; set; }
 
         public DateTime RecordedTS { get; set; }
+
+        public string SensorMac { get; set; }
     }
 }
