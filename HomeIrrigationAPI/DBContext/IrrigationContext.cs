@@ -20,8 +20,6 @@ namespace HomeIrrigationAPI.DBContext
             modelBuilder.Entity<SensorReading>(entity =>
             {
                 entity.HasKey(e => e.ID);
-                entity.Property(e => e.LocationID).IsRequired();
-                entity.Property(e => e.SensorID).IsRequired();
             });
         }
     }
