@@ -11,6 +11,7 @@ namespace HomeIrrigationAPI
 {
     public class Startup
     {
+        //test this
         public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)

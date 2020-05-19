@@ -16,5 +16,7 @@ namespace HomeIrrigationAPI.Models
         public string SensorMac { get; set; }
 
         public int Reading { get; set; }
+
+        public string DiagnosticsDetails { get; set; }
     }
 }
